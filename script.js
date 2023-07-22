@@ -57,7 +57,7 @@ function bmiCalc(){
 		height *= 30.5;
 		heightUnit = "ft"
 	}
-	function discrimination(){
+	function calculateResult(){
 		height /= 100;
 		const bmi = weight / Math.pow(height, 2);
 		const box = document.createElement("article");
@@ -78,7 +78,7 @@ function bmiCalc(){
 			box.className = "result high";
 		}
 		else if (bmi >= 30) {
-			result = "You're OBESED!!!";
+			result = "You're Obesed";
 			box.className = "result fat";
 		}
 		console.log("Calculated BMI: " + bmi)
@@ -103,9 +103,9 @@ function bmiCalc(){
 			document.querySelector("section").appendChild(box);
 			document.querySelector(".result").classList.add("slideFadeIn");
 
-			setTimeout(() => {
+			document.querySelector(".result").onanimationend = () => {
 				document.querySelector(".result").classList.remove("slideFadeIn");
-			}, 700)
+			}
 		}
 		if (document.querySelector(".result")){
 			document.querySelector(".result").remove();
@@ -136,6 +136,6 @@ function bmiCalc(){
 		errDisplay("Your weight and height must be more than 0.");
 	}
 	else {
-		discrimination();
+		calculateResult();
 	}
 }

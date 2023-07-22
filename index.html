@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" foxified-44>
+	<head>
+		<title>BMI Calculator</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link type="text/css" rel="stylesheet" href="style.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<main>
+			<header>
+				<article>
+					<h1>BMI-Calc</h1>
+				</article>
+				<article>
+					<button title="Toggle Dark Mode, on or off" onclick="darkMode()">Toggle Dark Mode</button>
+					<button title="Reset your theme preference" onclick="resetTheme()">Auto</button>
+				</article>
+			</header>
+			<section>
+				<h2>Welcome to BMI Calculator!</h2>
+				<noscript><p>Please allow JavaScript</p></noscript>
+				<p id="error"></p>
+				<div>
+					<form>
+						<label>Enter your Weight<br>
+							<input type="text" id="weightInput" name="weightInput">
+							<select title="Select Weight Unit" id="weightUnit" name="preferred-weightUnit">
+								<option value="kilogram">kg</option>
+								<option value="pound">lb</option>
+							</select>
+						</label>
+					</form>
+					<form>
+						<label>Enter your Height<br>
+							<input type="text" id="heightInput" name="heightInput">
+							<select title="Select Height Unit" id="heightUnit" name="preferred-heightUnit">
+								<option value="centimeter">cm</option>
+								<option value="foot">ft</option>
+							</select>
+						</label>
+					</form>
+					<button onclick="bmiCalc()">Calculate!</button>
+				</div>
+			</section>
+			<footer>
+				<article>
+					<p>&copy; <span id="copyrightyear"></span>|| NaiNonTheN00b1</p>
+				</article>
+				<article>
+					<a href="https://nainonth.github.io" title="Website" target="_blank">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M22 16c0 1.387-.075 2.725-.206 4H10.206a39.146 39.146 0 0 1 0-8h11.588c.138 1.275.206 2.612.206 4zm1.8-4h7.694c.331 1.281.506 2.619.506 4s-.175 2.719-.506 4H23.8c.131-1.288.2-2.625.2-4s-.069-2.712-.2-4zm7.037-2h-7.293c-.625-3.994-1.863-7.338-3.456-9.475A16.033 16.033 0 0 1 30.832 10zm-9.319 0H10.481c.381-2.275.969-4.287 1.688-5.919.656-1.475 1.387-2.544 2.094-3.219C14.963.2 15.544 0 16 0s1.038.2 1.738.863c.706.675 1.438 1.744 2.094 3.219.725 1.625 1.306 3.638 1.688 5.919zM8.455 10H1.163A16.042 16.042 0 0 1 11.913.525C10.319 2.663 9.082 6.006 8.457 10zM.506 12H8.2c-.131 1.288-.2 2.625-.2 4s.069 2.712.2 4H.506C.175 18.719 0 17.381 0 16s.175-2.719.506-4zm11.662 15.912c-.725-1.625-1.306-3.638-1.688-5.912h11.037c-.381 2.275-.969 4.287-1.688 5.912-.656 1.475-1.387 2.544-2.094 3.219-.7.669-1.281.869-1.738.869s-1.038-.2-1.738-.863c-.706-.675-1.438-1.744-2.094-3.219zM8.456 22c.625 3.994 1.863 7.338 3.456 9.475A16.042 16.042 0 0 1 1.162 22h7.294zm22.381 0a16.045 16.045 0 0 1-10.744 9.475c1.594-2.138 2.825-5.481 3.456-9.475h7.287z"/></svg>
+					</a>
+					<a href="https://github.com/nainonth" title="GitHub" target="_blank">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 31.47"><path d="M7199.51,7183.77a16.14,16.14,0,0,0-5.06,31.43c.79.16,1.09-.34,1.09-.77s0-1.66,0-3c-4.45,1-5.38-1.93-5.38-1.93a4.13,4.13,0,0,0-1.78-2.35c-1.46-1,.11-1,.11-1a3.34,3.34,0,0,1,2.46,1.65,3.4,3.4,0,0,0,4.67,1.34,3.45,3.45,0,0,1,1-2.17c-3.56-.37-7.29-1.76-7.29-8a6.29,6.29,0,0,1,1.64-4.32,5.85,5.85,0,0,1,.16-4.28s1.35-.42,4.4,1.66a15.4,15.4,0,0,1,8,0c3-2.08,4.4-1.66,4.4-1.66a5.91,5.91,0,0,1,.16,4.28,6.2,6.2,0,0,1,1.64,4.32c0,6.2-3.74,7.56-7.32,8a3.81,3.81,0,0,1,1.09,3c0,2.17,0,3.9,0,4.44s.3.93,1.09.77a16.14,16.14,0,0,0-5-31.43Z" transform="translate(-7183.5 -7183.77)"/></svg>
+					</a>
+					<a href="https://linktr.ee/NaiNonTheN00b1" title="Other Links (Linktree)" target="_blank">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 24.9"><path d="M7213.26,7200.12a7.66,7.66,0,0,0-9.87-11.64l-.08.05a1.7,1.7,0,0,0,2,2.76l.08-.06a4.27,4.27,0,0,1,5.5,6.49l-5.94,5.95a4.26,4.26,0,0,1-6.49-5.49l0-.09a1.69,1.69,0,1,0-2.75-2l-.06.09a7.65,7.65,0,0,0,11.64,9.86Zm-27.52-1.24a7.66,7.66,0,0,0,9.87,11.64l.08-.05a1.7,1.7,0,0,0-2-2.76l-.08.06a4.27,4.27,0,0,1-5.5-6.5l5.94-5.94a4.27,4.27,0,0,1,6.49,5.5l0,.08a1.69,1.69,0,1,0,2.75,2l.06-.08a7.66,7.66,0,0,0-11.64-9.87Z" transform="translate(-7183.5 -7187.05)"/></svg>
+					</a>
+				</article>
+			</footer>
+		</main>
+	</body>
+	<script src="script.js"></script>
+</html>

@@ -1,0 +1,256 @@
+:root {
+	--primary: #FFF;
+	--secondary: #CCEFFF;
+	--inside-primary: unset;
+	
+	--light-primary: #F0F0F0;
+	--contrast-primary: #E1E1E1;
+}
+.dark {
+	--primary: #252525;
+	--secondary: #1D2935;
+	--inside-primary: #FFF;
+
+	--light-primary: #393939;
+	--contrast-primary: #505050;
+}
+* {
+	box-sizing: border-box;
+	transition: background-color .2s;
+}
+h1,
+h2 {
+	transition: color .2s;
+}
+html {
+	background: var(--secondary);
+	font-size: 16px;
+}
+main,
+div,
+:is(header, footer) article:last-child {
+	display: flex;
+}
+main,
+div {
+	flex-direction: column;
+	margin: 1rem auto;
+	gap: 1rem;
+}
+main {
+	width: min(100%, 70rem);
+}
+div {
+	justify-content: center;
+	width: -moz-fit-content;
+	width: fit-content;
+}
+h1 {
+	font-size: 2.25em;
+}
+footer p {
+	margin: 0;
+	padding: .2em;
+}
+header,
+section,
+footer {
+	width: 100%;
+	background: var(--primary);
+	color: var(--inside-primary);
+	padding: 1.5rem;
+}
+header,
+footer,
+section,
+.result {
+	border-radius: 30px;
+}
+header,
+footer {
+	grid-template-columns: 22ch auto;
+}
+a:has(svg)::after,
+button,
+select {
+	border-radius: 999px;
+}
+header,
+footer {
+	display: grid;
+	align-items: center;
+}
+section h2 {
+	text-align: center;
+}
+header h1 {
+	margin: 0;
+}
+:is(header, footer) article:first-child {
+	justify-content: flex-start;
+}
+:is(header, footer) article:last-child {
+	justify-content: flex-end;
+}
+header article:last-child {
+	gap: .5rem;
+}
+:is(header, footer) article:last-child svg {
+	width: 1.6rem;
+	height: 1.6rem;
+	fill: var(--inside-primary);
+	transition: fill .2s;
+}
+footer :is(a, p) {
+	transition: .2s;
+}
+footer :is(a, p):not(:hover, :focus-visible) {
+	opacity: .5;
+}
+footer a:active {
+	filter: drop-shadow(0 0 5px var(--inside-primary));
+}
+a {
+	position: relative;
+	color: var(--inside-primary);
+	text-decoration: none;
+}
+a:has(svg) {
+	padding: 0 .5rem;
+}
+a:has(svg)::after {
+	content: "";
+	opacity: 0;
+	width: 0;
+	height: 3px;
+	background: var(--inside-primary);
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translate(-50%);
+	transition: .2s;
+}
+a:has(svg):is(:focus-visible, :hover)::after {
+	width: 50%;
+	opacity: 1;
+}
+html,
+button,
+input {
+	font-family: Poppins, sans-serif;
+}
+button,
+label,
+select,
+input {
+	color: var(--inside-primary);
+	transition: background-color .2s, color .2s, box-shadow .1s;
+}
+button {
+	border: none;
+	background: var(--light-primary);
+	color: var(--inside-primary);
+	padding: 1em 1.5em;
+	cursor: pointer;
+	box-shadow: 0 0 0 0 currentColor;
+}
+button:hover {
+	background: var(--contrast-primary);
+}
+form {
+	display: block;
+}
+input {
+	position: relative;
+	margin-right: .5rem;
+	border: none;
+	color: var(--inside-primary);
+	border-bottom: 2px solid var(--contrast-primary);
+	background: transparent;
+	transition: border-color .2s;
+}
+input:focus-visible {
+	border-color: currentColor;
+}
+*:not(input, a:has(svg)):focus-visible,
+button:active {
+	box-shadow: 0 0 0 1px currentColor;
+}
+*:focus-visible {
+	outline: transparent;
+}
+select {
+	background: var(--light-primary);
+	padding: .5em .8em;
+	border: none;
+}
+.result {
+	width: min(100%, 400px);
+	text-align: center;
+	background: var(--status);
+	color: var(--status-cl);
+	border: 2.5px solid currentColor;
+	margin: 0 auto;
+	padding: .8em;
+	filter: drop-shadow(0 5px 5px #00000035);
+	transition: transform .2s, opacity .2s;
+}
+.result.low {
+	--status: #80D4F9;
+	--status-cl: #133A4B;
+}
+.result.normal {
+	--status: #72EE72;
+	--status-cl: #0F550F;
+}
+.result.high {
+	--status: #F17C25;
+	--status-cl: #502606;
+}
+.result.fat {
+	--status: #E41717;
+	--status-cl: #540F0F;
+}
+#result {
+	font-weight: bold;
+}
+noscript p,
+#error {
+	color: red;
+	text-align: center;
+	text-decoration: underline;
+}
+:is(noscript p, #error)::before {
+	content: "!! ";
+}
+:is(noscript p, #error)::after {
+	content: " !!";
+}
+#error {
+	display: none;
+}
+.slideFadeIn {
+	animation: slideFadeIn .7s ease forwards;
+}
+@keyframes slideFadeIn {
+	from {
+		transform: translateY(50%);
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+@media screen and (max-width: 550px) {
+	:is(header, footer) {
+		grid-template-columns: 1fr;
+		grid-gap: 1em;
+	}
+	:is(header, footer) article:last-child {
+		justify-content: center;
+	}
+	:is(header, footer) article:first-child {
+		text-align: center;
+	}
+}

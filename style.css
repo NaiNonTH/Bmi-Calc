@@ -1,7 +1,7 @@
 :root {
 	--primary: #FFF;
 	--secondary: #CCEFFF;
-	--inside-primary: unset;
+	--inside-primary: #000;
 	
 	--light-primary: #F0F0F0;
 	--contrast-primary: #E1E1E1;
@@ -157,8 +157,16 @@ button {
 button:hover {
 	background: var(--contrast-primary);
 }
-form {
+button[type="submit"] {
+	margin: 1em auto;
 	display: block;
+}
+form,
+label {
+	display: block;
+}
+label {
+	margin: 1em 0;
 }
 input {
 	position: relative;

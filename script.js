@@ -42,20 +42,23 @@ copy.innerText = year + " ";
 
 // BMI Calculator Function
 
-function bmiCalc(){
+const form = document.getElementById("bmi-calc");
+
+form.onsubmit = e => {
+	e.preventDefault();
 	const weightInput = document.getElementById("weightInput");
 	const heightInput = document.getElementById("heightInput");
 	let weight = weightInput.value;
 	let height = heightInput.value;
-	let weightUnit = "kg"
-	let heightUnit = "cm"
+	let weightUnit = "kg";
+	let heightUnit = "cm";
 	if (document.getElementById("weightUnit").value === "pound"){
 		weight /= 2.2;
-		weightUnit = "lb"
+		weightUnit = "lb";
 	}
 	if (document.getElementById("heightUnit").value === "foot"){
 		height *= 30.5;
-		heightUnit = "ft"
+		heightUnit = "ft";
 	}
 	function calculateResult(){
 		height /= 100;

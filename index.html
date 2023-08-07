@@ -25,25 +25,21 @@
 				<noscript><p>Please allow JavaScript</p></noscript>
 				<p id="error"></p>
 				<div>
-					<form>
-						<label>Enter your Weight<br>
-							<input type="text" id="weightInput" name="weightInput">
-							<select title="Select Weight Unit" id="weightUnit" name="preferred-weightUnit">
-								<option value="kilogram">kg</option>
-								<option value="pound">lb</option>
-							</select>
-						</label>
+					<form id="bmi-calc">
+						<label>Enter your Weight</label>
+						<input type="text" id="weightInput" name="weightInput">
+						<select title="Select Weight Unit" id="weightUnit" name="preferred-weightUnit">
+							<option value="kilogram">kg</option>
+							<option value="pound">lb</option>
+						</select>
+						<label>Enter your Height</label>
+						<input type="text" id="heightInput" name="heightInput">
+						<select title="Select Height Unit" id="heightUnit" name="preferred-heightUnit">
+							<option value="centimeter">cm</option>
+							<option value="foot">ft</option>
+						</select>
+						<button type="submit">Calculate!</button>
 					</form>
-					<form>
-						<label>Enter your Height<br>
-							<input type="text" id="heightInput" name="heightInput">
-							<select title="Select Height Unit" id="heightUnit" name="preferred-heightUnit">
-								<option value="centimeter">cm</option>
-								<option value="foot">ft</option>
-							</select>
-						</label>
-					</form>
-					<button onclick="bmiCalc()">Calculate!</button>
 				</div>
 			</section>
 			<footer>
